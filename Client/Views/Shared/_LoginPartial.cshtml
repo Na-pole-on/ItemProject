@@ -1,0 +1,30 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a asp-controller="Home" asp-action="Index" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a asp-controller="Items" asp-action="YourItems" class="nav-link px-2 text-white">Your's Items</a></li>
+        <li><a asp-controller="Items" asp-action="Add" class="nav-link px-2 text-white">Add Item</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Cart Shop</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+    </ul>
+
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+    </form>
+
+    <div class="text-end">
+        <a asp-controller="Home" asp-action="Logout" class="btn btn-warning me-2">Log Out</a>
+    </div>
+}
+else
+{
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a  asp-controller="Home" asp-action="Index" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+    </ul>
+
+    <div class="text-end">
+        <a asp-controller="Home" asp-action="Login" class="btn btn-warning me-2">Log In</a>
+    </div>
+}

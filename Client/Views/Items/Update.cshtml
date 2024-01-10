@@ -1,0 +1,72 @@
+﻿@model UpdateItemViewModel
+
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-9 border rounded-3 px-5 py-3">
+        <h2 class="mb-2">Sign Up</h2>
+        <hr />
+
+        <form asp-action="Update" enctype="multipart/form-data" novalidate="">
+            <div class="row g-3">
+
+                <div class="col-sm-6 mb-2">
+                    <label asp-for="Name" for="lastName" class="form-label">Name of product</label>
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Iphone 6S" required="">
+                    <span class="text-danger position-absolute" asp-validation-for="Name"></span>
+                </div>
+
+                <div class="col-sm-6 mb-2">
+                    <label asp-for="CategoryName" for="lastName" class="form-label">Category</label>
+                    <input asp-for="CategoryName" type="text" class="form-control" placeholder="Smart phone" required="">
+                    <span class="text-danger position-absolute" asp-validation-for="CategoryName"></span>
+                </div>
+
+                <div class="col-sm-12 mb-2">
+                    <label asp-for="LongDescription" for="lastName" class="form-label">Long description</label>
+                    <textarea style="min-height: 5.5rem;" asp-for="LongDescription" type="text" class="form-control" placeholder="Perfectly balanced and modern, the iPhone 6s is the pinnacle of innovation in the world of mobile devices. With unsurpassed power and amazing capabilities, this smartphone will become a reliable companion in everyday life and help you find new horizons in creativity and business tasks." required=""></textarea>
+                    <span class="text-danger position-absolute" asp-validation-for="LongDescription"></span>
+                </div>
+
+                <div class="col-sm-12 mb-2">
+                    <label asp-for="ShortDescription" for="lastName" class="form-label">Short description</label>
+                    <textarea asp-for="ShortDescription" type="text" class="form-control" placeholder="The iPhone 6 is a stylish and powerful smartphone with excellent image quality, fast processor and many innovative features." required=""></textarea>
+                    <span class="text-danger position-absolute" asp-validation-for="ShortDescription"></span>
+                </div>
+
+                <div class="col-sm-4 mb-2">
+                    <label asp-for="Price" for="lastName" class="form-label">Price</label>
+                    <input asp-for="Price" type="text" class="form-control" placeholder="350.20" required="">
+                    <span class="text-danger position-absolute" asp-validation-for="Price"></span>
+                </div>
+
+                <div class="col-sm-4 mb-2">
+                    <label asp-for="Photo" for="lastName" class="form-label">Photo</label>
+                    <input asp-for="Photo" type="file" class="form-control" />
+                    <span class="text-danger position-absolute" asp-validation-for="Photo"></span>
+                </div>
+
+                <div class="col-sm-4 mb-2">
+                    <label asp-for="Quentity" for="lastName" class="form-label">Quentity</label>
+                    <input asp-for="Quentity" type="text" class="form-control" placeholder="23" required="">
+                    <span class="text-danger position-absolute" asp-validation-for="Quentity"></span>
+                </div>
+
+                <input asp-for="PhotoUrl" type="hidden" />
+
+                <div class="col-sm-3"></div>
+
+            </div>
+
+            <div class="row mt-3">
+                <div class="d-flex justify-content-end align-items-end">
+                    <a asp-controller="Items" asp-action="YourItems" class="btn btn-secondary btn-lg px-5 mx-3">Cancel</a>
+                    <button class="btn btn-outline-secondary btn-lg px-5 mx-3" type="submit">Save changes</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
