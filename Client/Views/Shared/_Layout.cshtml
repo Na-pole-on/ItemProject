@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Client</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Client.styles.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="~/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/bootstrap-grid.css" />
     <link rel="stylesheet" href="~/css/bootstrap-reboot.css" />
     <link rel="stylesheet" href="~/css/bootstrap-utilities.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
 <body>
@@ -35,9 +35,10 @@
     </div>
 
     <script src="~/js/bootstrap.js"></script>
-    <script src="~/js/api.js"></script>
+    <script src="~/js/request.js"></script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/8c57d5d3d6.js" crossorigin="anonymous"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

@@ -1,6 +1,6 @@
 ﻿using Client.Actions;
-using Client.AutoMapper;
 using Client.Models;
+using Client.Models.Items;
 using Client.Services.Interfaces;
 using Client.ViewModels;
 using Microsoft.AspNetCore.Authentication;

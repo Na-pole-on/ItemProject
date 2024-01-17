@@ -1,4 +1,5 @@
 ﻿using Client.Models;
+using Client.Models.Items;
 
 namespace Client.ViewModels
 {

@@ -1,4 +1,4 @@
-async function getItems() {
+﻿async function getItems() {
     const response = await fetch("/Items/GetAll", {
         method: "GET",
         headers: { "Accept": "application/json" }
@@ -9,11 +9,14 @@ async function getItems() {
         const rows = document.querySelector(".items-list");
 
         items.forEach(item => rows.append(row(item)));
-        btnShowMore(0);
     }
-    else {
-        notFound();
-    }
+}
+
+async function details(id) {
+    const response = await fetch("/Cart/AddInCart/" + id, {
+        method: "GET",
+        headers: { "Accept": "application/json" }
+    });
 }
 
 getItems();

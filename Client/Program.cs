@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 

@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using ShopCartAPI.Data;
+using ShopCartAPI.Repositories;
+using ShopCartAPI.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +12,7 @@ builder.Services.AddDbContext<CartDbContext>(options
     => options.UseSqlServer(connString));
 
 /*
- builder.Services.AddAuthentication("Bearer")
+builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
         options.Authority = "https://localhost:7267/";
@@ -20,6 +23,8 @@ builder.Services.AddDbContext<CartDbContext>(options
     });
  */
 
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 
@@ -28,7 +33,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapControllers();
 

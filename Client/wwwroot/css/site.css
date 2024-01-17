@@ -1,18 +1,14 @@
-html {
-  font-size: 14px;
+.cart-input {
+    border: none;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@media (min-width: 992px) {
+    .cart-box {
+        max-height: 80vh;
+    }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

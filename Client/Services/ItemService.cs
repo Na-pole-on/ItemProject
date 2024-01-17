@@ -1,4 +1,5 @@
 ﻿using Client.Models;
+using Client.Models.Items;
 using Client.Services.Interfaces;
 
 namespace Client.Services
@@ -14,7 +15,7 @@ namespace Client.Services
             => await this.SendAsync(new RequestViewModel
             {
                 Method = HttpMethod.Get,
-                Url = _configuration["apiUrl"] + "/api/items",
+                Url = _configuration["ItemAPI"] + "/api/items",
                 AccessToken = token ?? string.Empty
             });
 
@@ -22,7 +23,7 @@ namespace Client.Services
             => await this.SendAsync(new RequestViewModel
             {
                 Method = HttpMethod.Get,
-                Url = _configuration["apiUrl"] + "/api/items/" + id,
+                Url = _configuration["ItemAPI"] + "/api/items/" + id,
                 AccessToken = token ?? string.Empty
             });
 
@@ -30,7 +31,7 @@ namespace Client.Services
             => await this.SendAsync(new RequestViewModel
             {
                 Method = HttpMethod.Get,
-                Url = _configuration["apiUrl"] + "/api/items/" + id,
+                Url = _configuration["ItemAPI"] + "/api/items/" + id,
                 AccessToken = token ?? string.Empty
             });
 
@@ -38,7 +39,7 @@ namespace Client.Services
             => await this.SendAsync(new RequestViewModel
             {
                 Method = HttpMethod.Post,
-                Url = _configuration["apiUrl"] + "/api/items",
+                Url = _configuration["ItemAPI"] + "/api/items",
                 Data = add,
                 AccessToken = token ?? string.Empty
             });
@@ -47,7 +48,7 @@ namespace Client.Services
             => await this.SendAsync(new RequestViewModel
             {
                 Method = HttpMethod.Put,
-                Url = _configuration["apiUrl"] + "/api/items/" + id,
+                Url = _configuration["ItemAPI"] + "/api/items/" + id,
                 Data = update,
                 AccessToken = token ?? string.Empty
             });
@@ -56,7 +57,7 @@ namespace Client.Services
             => await this.SendAsync(new RequestViewModel
             {
                 Method = HttpMethod.Delete,
-                Url = _configuration["apiUrl"] + "/api/items/" + id,
+                Url = _configuration["ItemAPI"] + "/api/items/" + id,
                 AccessToken = token ?? string.Empty
             });
     }

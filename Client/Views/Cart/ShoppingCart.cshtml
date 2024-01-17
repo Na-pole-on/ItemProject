@@ -1,0 +1,85 @@
+﻿<section class="h-100">
+    <div class="container">
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8 cart-list">
+                
+            </div>
+
+            <div class="col-md-4 cart-summary">
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+
+    async function getCart() {
+        const response = await fetch("/Cart/GetCart", {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok === true) {
+            const cart = await response.json();
+
+            if (cart.cartDetails.length == 0) {
+                clearCartPage();
+                emptyCart(cart);
+                return;
+            }
+
+            cartBox(cart);
+            var hr = document.getElementsByClassName("line");
+            hr[hr.length - 1].remove();
+
+        }
+    }
+
+    async function removeFromCart(cartDetailsId) {
+        const response = await fetch("/Cart/RemoveFromCart/" + cartDetailsId, {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok === true) {
+
+            const cd = await response.json();
+            var count = parseInt(cd.count);
+            changePriceAndQuentity(0, 0, -count, -count, cd);
+
+            var rem = document.getElementById("cartDetailsId-" + cd.cartDetailsId);
+            rem.remove();
+
+            if (document.getElementsByClassName("cart-rows").length == 0) {
+                await getCart();
+            }
+        }
+    }
+
+    async function countUpper(cd) {
+        const response = await fetch("/Cart/CountUpper/" + cd.cartDetailsId, {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok == true) {
+            changePriceAndQuentity(1, 1, 1, 1, cd);
+        }
+    }
+
+    async function countLower(cd) {
+        const response = await fetch("/Cart/CountLower/" + cd.cartDetailsId, {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok == true) {
+            changePriceAndQuentity(-1, -1, -1, -1, cd);
+        }
+    }
+
+    getCart();
+
+</script>

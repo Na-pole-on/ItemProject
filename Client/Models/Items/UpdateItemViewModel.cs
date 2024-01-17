@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Client.Models
+namespace Client.Models.Items
 {
     public class UpdateItemViewModel
     {
