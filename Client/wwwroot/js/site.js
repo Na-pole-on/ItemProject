@@ -1,6 +1,6 @@
 ﻿function row(item) {
     const col = document.createElement("div");
-    col.className = "col-4";
+    col.className = "col-lg-4 col-md-12";
 
     const border = document.createElement("div");
     border.className = "p-0 my-3 border rounded";

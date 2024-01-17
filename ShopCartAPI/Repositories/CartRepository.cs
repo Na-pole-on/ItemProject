@@ -44,11 +44,11 @@ namespace ShopCartAPI.Repositories
             CartHeaderModel? cartHeader = await _context.CartHeaders
                 .FirstOrDefaultAsync(ch => ch.UserId == userId);
 
-            CartDetailsModel? cartDetails = await _context.CartDetails
-                .FirstOrDefaultAsync(ch => ch.CartHeaderId == cartHeader.CartHeaderId);
+            CartDetailsModel? cartDetails = await _context.CartDetails.Include(cd => cd.Item)
+                .FirstOrDefaultAsync(ch => ch.CartHeaderId == cartHeader.CartHeaderId && ch.ItemId == itemId);
 
-            if (cartDetails is not null)
-                return await UpdateInCart(itemId, userId);
+            if(cartDetails is not null)
+                return false;
 
             ItemModel? item = await _context.Items
                 .FindAsync(itemId);
